@@ -16,7 +16,27 @@ products.forEach(product => {
         <img src="${product.image}" alt="${product.name}">
         <h3>${product.name}</h3>
         <p>${product.price}</p>
-        <button>Beli Sekarang</button>
+        <button>今すぐ購入</button>
     `;
     productGrid.appendChild(productCard);
+});
+// Validasi Form Register
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    let password = document.getElementById('password').value;
+    let confirmPassword = document.getElementById('confirm-password').value;
+
+    if (password !== confirmPassword) {
+        alert('パスワードと確認パスワードが一致しません');
+        event.preventDefault();  // フォームの送信を停止 
+});
+
+// Validasi Form Login
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+    if (email === '' || password === '') {
+        alert('メールアドレスまたはパスワードは空欄にできません。');
+        event.preventDefault();  // フォームの送信を停止
+    }
 });
